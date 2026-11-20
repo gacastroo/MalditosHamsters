@@ -19,5 +19,6 @@ OPTIMIZACIÓN DE IMÁGENES
 - Los originales de alta resolución NO están en el proyecto; consérvalos aparte para impresión.
 
 MENÚ MÓVIL (hasta 760 px)
-- Barra fija abajo: el logo de Malditos Hámsters (assets/logo-menu.webp) con una etiqueta MENU. Al tocarlo se abre el panel de enlaces hacia arriba.
-- Se cierra al pulsar un enlace, al tocar fuera o con Escape. En escritorio el menú sigue siendo la pastilla superior.
+- Barra fija pegada al borde inferior y a todo el ancho: logo de Malditos Hámsters (assets/logo-menu.webp) + botón MENU (hamburguesa que pasa a ✕).
+- Al tocarla se abre el panel de enlaces hacia arriba. Se cierra al pulsar un enlace, al tocar fuera o con Escape.
+- Respeta la zona segura de los móviles con barra de gestos (env(safe-area-inset-bottom)). En escritorio el menú sigue siendo la pastilla superior.

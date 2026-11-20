@@ -588,77 +588,81 @@ footer {
 
 .menu-toggle { display: none }
 
-/* Móvil: menú fijo abajo. Un hámster en silueta asoma por el borde inferior; al tocarlo se abre el panel hacia arriba. */
+/* Móvil: barra de menú fija, pegada al borde inferior y a todo el ancho. El panel de enlaces sale hacia arriba. */
 @media(max-width:760px) {
   .site-header {
     position: fixed;
     inset: auto 0 0 0;
     z-index: 70;
-    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px))
+    display: block;
+    transform: translateZ(0)
   }
 
   .navbar {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: none;
     background: none;
     border: 0;
     border-radius: 0;
-    box-shadow: none;
-    pointer-events: none
+    box-shadow: none
   }
 
   .menu-toggle {
-    position: relative;
-    display: block;
-    width: 150px;
-    margin-bottom: 0;
-    padding: 0;
-    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    height: calc(78px + env(safe-area-inset-bottom, 0px));
+    padding: 0 12px env(safe-area-inset-bottom, 0px);
+    background: var(--cream);
     border: 0;
+    border-top: 3px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 0 -4px 0 var(--pink);
     cursor: pointer;
     color: var(--ink);
     pointer-events: auto;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform .2s ease
+    -webkit-tap-highlight-color: transparent
   }
 
-  .menu-toggle[aria-expanded="true"] { transform: translateY(-3px) }
-
-  .menu-logo {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 3px 0 rgba(58, 40, 80, .35))
-  }
+  .menu-logo { width: auto; height: 58px }
 
   .menu-label {
-    display: block;
-    width: fit-content;
-    margin: 4px auto 0;
-    position: relative;
-    padding: 5px 16px 3px;
-    background: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px 7px 16px;
+    background: var(--pink);
     border: 2px solid var(--ink);
     border-radius: 999px;
-    box-shadow: 2px 2px 0 var(--pink);
+    box-shadow: 2px 2px 0 var(--ink);
     font-family: var(--font-title);
-    font-size: 16px;
+    font-size: 19px;
     line-height: 1;
     letter-spacing: .1em;
-    color: var(--ink)
+    color: var(--cream);
+    transition: transform .15s
   }
 
-  .menu-toggle:hover .menu-label,
-  .menu-toggle:focus-visible .menu-label,
-  .menu-toggle[aria-expanded="true"] .menu-label { background: var(--pink); color: var(--cream) }
+  .menu-toggle:active .menu-label { transform: translate(1px, 1px) }
+  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: -8px }
 
-  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; border-radius: 16px }
+  .bars { display: grid; gap: 3px }
+  .bars i { display: block; width: 17px; height: 3px; background: var(--cream); border-radius: 2px; transition: transform .2s, opacity .2s }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(6px) rotate(45deg) }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0 }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-6px) rotate(-45deg) }
 
   .navigation {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 14px);
     flex-direction: column;
     gap: 2px;
     width: min(300px, 86vw);
-    margin: 0 0 10px;
+    margin: 0;
     padding: 8px;
     background: var(--cream);
     border: 3px solid var(--ink);
@@ -666,26 +670,21 @@ footer {
     box-shadow: 4px 4px 0 var(--pink);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(14px);
+    transform: translate(-50%, 14px);
     transition: opacity .2s ease, transform .2s ease, visibility .2s
   }
 
-  .navigation.open {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    pointer-events: auto
-  }
+  .navigation.open { opacity: 1; visibility: visible; transform: translate(-50%, 0) }
 
   .navigation a { padding: 12px 14px 10px; font-size: 22px; text-align: center }
 
-  /* Hueco para que la barra fija no tape el pie ni el botón de subir */
-  footer { padding-bottom: 150px }
+  /* Hueco para que la barra fija no tape el pie de página */
+  footer { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)) }
 }
 
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto }
-  .navigation, .navigation a, .menu-toggle { transition: none }
+  .navigation, .navigation a, .bars i, .menu-label { transition: none }
 }
 
 /* Flecha para volver arriba: aparece al bajar. */
@@ -809,4 +808,4 @@ footer {
 }
 
 /* Móvil: el botón de subir queda por encima de la barra del menú */
-@media(max-width:760px) { .to-top { bottom: calc(132px + env(safe-area-inset-bottom, 0px)) } }
+@media(max-width:760px) { .to-top { bottom: calc(96px + env(safe-area-inset-bottom, 0px)) } }

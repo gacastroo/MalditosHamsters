@@ -3,6 +3,7 @@ const nav=document.querySelector('.navigation');
 button.addEventListener('click',()=>{
   const open=nav.classList.toggle('open');
   button.setAttribute('aria-expanded',String(open));
+  button.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
 });
 nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
   nav.classList.remove('open');
