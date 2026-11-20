@@ -588,62 +588,104 @@ footer {
 
 .menu-toggle { display: none }
 
+/* Móvil: menú fijo abajo. Un hámster en silueta asoma por el borde inferior; al tocarlo se abre el panel hacia arriba. */
 @media(max-width:760px) {
-  .site-header { inset: 10px 10px auto 10px }
+  .site-header {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 70;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px))
+  }
 
   .navbar {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 26px
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    pointer-events: none
   }
 
   .menu-toggle {
-    width: 100%;
-    height: 46px;
-    padding: 4px 18px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
+    display: block;
+    width: 150px;
+    margin-bottom: 0;
+    padding: 0;
     background: none;
     border: 0;
-    border-radius: 26px;
     cursor: pointer;
+    color: var(--ink);
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .2s ease
+  }
+
+  .menu-toggle[aria-expanded="true"] { transform: translateY(-3px) }
+
+  .menu-logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 3px 0 rgba(58, 40, 80, .35))
+  }
+
+  .menu-label {
+    display: block;
+    width: fit-content;
+    margin: 4px auto 0;
+    position: relative;
+    padding: 5px 16px 3px;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 2px 2px 0 var(--pink);
     font-family: var(--font-title);
-    font-size: 21px;
-    letter-spacing: .06em;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: .1em;
     color: var(--ink)
   }
 
-  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: -3px }
+  .menu-toggle:hover .menu-label,
+  .menu-toggle:focus-visible .menu-label,
+  .menu-toggle[aria-expanded="true"] .menu-label { background: var(--pink); color: var(--cream) }
 
-  .bars { display: grid; gap: 5px; margin-top: -4px }
-  .bars i { display: block; width: 26px; height: 3px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s }
-  .menu-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(8px) rotate(45deg) }
-  .menu-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0 }
-  .menu-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-8px) rotate(-45deg) }
+  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; border-radius: 16px }
 
   .navigation {
     flex-direction: column;
-    gap: 0;
-    padding: 0 8px;
-    max-height: 0;
-    overflow: hidden;
+    gap: 2px;
+    width: min(300px, 86vw);
+    margin: 0 0 10px;
+    padding: 8px;
+    background: var(--cream);
+    border: 3px solid var(--ink);
+    border-radius: 22px;
+    box-shadow: 4px 4px 0 var(--pink);
+    opacity: 0;
     visibility: hidden;
-    transition: max-height .25s ease, padding .25s ease, visibility .25s
+    transform: translateY(14px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s
   }
 
   .navigation.open {
-    max-height: 340px;
-    padding: 0 8px 10px;
-    visibility: visible
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto
   }
 
-  .navigation a { padding: 12px 14px 10px; font-size: 22px }
+  .navigation a { padding: 12px 14px 10px; font-size: 22px; text-align: center }
+
+  /* Hueco para que la barra fija no tape el pie ni el botón de subir */
+  footer { padding-bottom: 150px }
 }
 
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto }
-  .navigation, .bars i, .navigation a { transition: none }
+  .navigation, .navigation a, .menu-toggle { transition: none }
 }
 
 /* Flecha para volver arriba: aparece al bajar. */
@@ -765,3 +807,6 @@ footer {
 @media(prefers-reduced-motion:reduce) {
   .small-card-grid img, .large-card-grid img, .sales-sheet a { transition: none }
 }
+
+/* Móvil: el botón de subir queda por encima de la barra del menú */
+@media(max-width:760px) { .to-top { bottom: calc(132px + env(safe-area-inset-bottom, 0px)) } }

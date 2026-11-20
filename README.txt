@@ -17,3 +17,7 @@ OPTIMIZACIÓN DE IMÁGENES
 - Se han añadido width/height a cada <img> (evita saltos de maquetación), loading="lazy" a todo lo que queda bajo la portada y fetchpriority="high" a la imagen de fondo de la portada.
 - Corregido #carta-real: la regla "border" estaba mal escrita (con comas) y el navegador la ignoraba. Ahora es: border: 10px solid #151c51.
 - Los originales de alta resolución NO están en el proyecto; consérvalos aparte para impresión.
+
+MENÚ MÓVIL (hasta 760 px)
+- Barra fija abajo: el logo de Malditos Hámsters (assets/logo-menu.webp) con una etiqueta MENU. Al tocarlo se abre el panel de enlaces hacia arriba.
+- Se cierra al pulsar un enlace, al tocar fuera o con Escape. En escritorio el menú sigue siendo la pastilla superior.

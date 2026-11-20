@@ -38,3 +38,18 @@ lb.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')show(current-1);
   if(e.key==='ArrowRight')show(current+1);
 });
+
+/* Menú móvil: se cierra al tocar fuera o con Escape. */
+document.addEventListener('click',e=>{
+  if(nav.classList.contains('open')&&!e.target.closest('.navbar')){
+    nav.classList.remove('open');
+    button.setAttribute('aria-expanded','false');
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&nav.classList.contains('open')){
+    nav.classList.remove('open');
+    button.setAttribute('aria-expanded','false');
+    button.focus();
+  }
+});
