@@ -588,7 +588,7 @@ footer {
 
 .menu-toggle { display: none }
 
-/* Móvil: logo centrado y fijo abajo (sin barra). Al tocarlo, el panel de enlaces sale hacia arriba. */
+/* Móvil: botón MENU centrado y fijo abajo. Al tocarlo, el panel de enlaces sale hacia arriba. */
 @media(max-width:760px) {
   .site-header {
     position: fixed;
@@ -596,7 +596,7 @@ footer {
     z-index: 70;
     display: flex;
     justify-content: center;
-    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
     transform: translateZ(0)
   }
 
@@ -610,7 +610,7 @@ footer {
 
   .menu-toggle {
     display: block;
-    width: 150px;
+    width: auto;
     padding: 0;
     background: none;
     border: 0;
@@ -620,26 +620,20 @@ footer {
     -webkit-tap-highlight-color: transparent
   }
 
-  .menu-logo {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 3px 0 rgba(58, 40, 80, .35))
-  }
-
   .menu-label {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     width: fit-content;
-    margin: 4px auto 0;
-    padding: 7px 14px 5px 16px;
+    margin: 0;
+    padding: 11px 20px 9px 22px;
     background: var(--pink);
     border: 2px solid var(--ink);
     border-radius: 999px;
-    box-shadow: 2px 2px 0 var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
     font-family: var(--font-title);
-    font-size: 17px;
+    font-size: 22px;
     line-height: 1;
     letter-spacing: .1em;
     color: var(--cream);
@@ -647,13 +641,13 @@ footer {
   }
 
   .menu-toggle:active .menu-label { transform: translate(1px, 1px) }
-  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; border-radius: 16px }
+  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; border-radius: 999px }
 
-  .bars { display: grid; gap: 3px }
-  .bars i { display: block; width: 16px; height: 3px; background: var(--cream); border-radius: 2px; transition: transform .2s, opacity .2s }
-  .menu-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(6px) rotate(45deg) }
+  .bars { display: grid; gap: 4px }
+  .bars i { display: block; width: 20px; height: 3px; background: var(--cream); border-radius: 2px; transition: transform .2s, opacity .2s }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(7px) rotate(45deg) }
   .menu-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0 }
-  .menu-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-6px) rotate(-45deg) }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
 
   .navigation {
     position: absolute;
@@ -678,8 +672,8 @@ footer {
 
   .navigation a { padding: 12px 14px 10px; font-size: 22px; text-align: center }
 
-  /* Hueco para que el logo fijo no tape el pie de página */
-  footer { padding-bottom: calc(150px + env(safe-area-inset-bottom, 0px)) }
+  /* Hueco para que el botón fijo no tape el pie de página */
+  footer { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)) }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -808,4 +802,4 @@ footer {
 }
 
 /* Móvil: el botón de subir queda por encima de la barra del menú */
-@media(max-width:760px) { .to-top { bottom: calc(132px + env(safe-area-inset-bottom, 0px)) } }
+@media(max-width:760px) { .to-top { bottom: calc(86px + env(safe-area-inset-bottom, 0px)) } }
