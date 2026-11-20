@@ -1,0 +1,767 @@
+@font-face {
+  font-family: "Myfont Hamsters Grandes";
+  src: url("assets/fonts/MyfontHamstersGrandes-Regular.otf") format("opentype"),
+       url("assets/fonts/MyfontHamstersGrandes-Regular.ttf") format("truetype");
+  font-display: swap
+}
+
+/* Fuente de texto (la "Bold"): copia sus archivos a assets/fonts con estos nombres. */
+@font-face {
+  font-family: "Myfont Hamsters Bold";
+  src: url("assets/fonts/MyfontHamsters-Bold.otf") format("opentype"),
+       url("assets/fonts/MyfontHamsters-Bold.ttf") format("truetype");
+  font-display: swap
+}
+
+:root {
+  --font-title: "Myfont Hamsters Grandes", Arial, sans-serif;
+  --font-text: "Myfont Hamsters Bold", Arial, Helvetica, sans-serif;
+  --ink: #3a2850;
+  --pink: #ec5f93;
+  --cream: #ffe9d2;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #17121d;
+  font-family: var(--font-text)
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto
+}
+
+/* Portada: collage de la referencia, medido sobre la captura a tamaño normal. */
+.hero-composition {
+  height: min(875px, 70vw);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff8f3 0%, #ffb27f 49.5%, #ffa36f 49.5%, #ffa36f 100%);
+}
+
+.hero-stage {
+  width: min(1250px, 100vw);
+  height: min(800px, 64vw);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-backdrop {
+  position: absolute;
+  top: -6.7%;
+  left: 0;
+  width: 95%;
+  height: auto;
+  z-index: 1;
+}
+
+.hero-pipa {
+  position: absolute;
+  top: 55.9%;
+  left: 3%;
+  width: 23.11%;
+  height: auto;
+  z-index: 4;
+  transform: rotate(-9deg);
+}
+
+.hero-intro {
+  position: absolute;
+  top: 51%;
+  left: 30.44%;
+  width: 34.6%;
+  height: auto;
+  z-index: 3;
+}
+
+.hero-title {
+  position: absolute;
+  top: 24.85%;
+  left: 27.22%;
+  width: 42.22%;
+  height: auto;
+  z-index: 5;
+}
+
+.hero-tito {
+  position: absolute;
+  top: 37.47%;
+  left: 47.44%;
+  width: 50%;
+  height: auto;
+  z-index: 4;
+}
+
+.board-band {
+  height: 538px;
+  background: #ffbf69;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.board-band img {
+  width: 832px;
+  height: auto
+}
+
+.contents-section {
+  min-height: 639px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 0 0
+}
+
+.contents-section img {
+  width: 594px;
+  height: auto
+}
+
+/* Las dos láminas se solapan y los seis corazones rodean el conjunto. */
+.templates-band {
+  height: 369px;
+  background: #ffa36f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.templates-stage {
+  width: 750px;
+  height: 336px;
+  position: relative;
+  flex: 0 0 750px
+}
+
+.template-back {
+  position: absolute;
+  width: 462px;
+  left: 0;
+  top: 24px;
+  z-index: 1;
+  transform: rotate(-4deg)
+}
+
+.template-front {
+  position: absolute;
+  width: 462px;
+  right: 0;
+  top: 12px;
+  z-index: 2;
+  transform: rotate(4deg)
+}
+
+.heart {
+  position: absolute;
+  width: 75px;
+  height: auto;
+  z-index: 4;
+  pointer-events: none
+}
+
+.heart-1 {
+  left: 10px;
+  top: 129px;
+  transform: rotate(-12deg)
+}
+
+.heart-2 {
+  left: 120px;
+  top: -3px;
+  transform: rotate(8deg)
+}
+
+.heart-3 {
+  left: 295px;
+  top: -9 px;
+  transform: rotate(-8deg)
+}
+
+.heart-4 {
+  left: 290px;
+  top: 55px;
+  transform: rotate(10deg)
+}
+
+.heart-5 {
+  right: -30px;
+  top: 170px;
+  transform: rotate(13deg)
+}
+
+.heart-6 {
+  right: 170px;
+  bottom: -30px;
+  transform: rotate(-9deg)
+}
+
+.character-cards {
+  background: #fff;
+  padding: 30px 0 0
+}
+
+.small-card-grid {
+    width: 760px;
+    margin: 0 auto 36px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px 24px;
+    align-items: start;
+}
+
+.small-card-grid img {
+    width: 260px;
+    height: auto;
+    justify-self: center;
+}
+
+/* Fila 1: tres láminas. Fila 2: tres láminas. Fila 3: dos láminas iguales. */
+.large-card-grid {
+  width: 1032px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start
+}
+
+.large-card-grid img {
+  width: 100%;
+  height: auto;
+  grid-column: span 2
+}
+
+.large-card-grid img:nth-child(7),
+.large-card-grid img:nth-child(8) {
+  grid-column: span 3
+}
+
+#carta-real {
+  border: 10px solid #151c51;
+  border-radius: 3%;
+}
+
+.last-images {
+    width: 97vw;
+    max-width: 1800px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.last-images img {
+    width: 100%;
+    height: auto;
+}
+
+
+.sales-sheet {
+    text-align: center;
+    padding: 25px 0 10px;
+}
+
+.sales-sheet a {
+  display: inline-block;
+  padding: 9px 30px;
+  border: 3px solid #bd794d;
+  border-radius: 6px;
+  background: #ffc18c;
+  color: #17121d;
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--pink);
+  transition: transform .15s, box-shadow .15s, background .15s, color .15s
+}
+
+.sales-sheet a:hover,
+.sales-sheet a:focus-visible {
+  background: var(--pink);
+  border-color: var(--ink);
+  color: var(--cream);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+  outline: none
+}
+
+.sales-sheet a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink)
+}
+
+
+footer {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 8px 0 20px;
+}
+
+.footer-logo {
+  margin: 20px;
+  width: 300px;
+  height: auto
+}
+
+.social-links {
+  display: flex;
+  gap: 45px;
+  align-items: center
+}
+
+.social-links a {
+  width: 27px;
+  height: 27px;
+  color: #17121d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: transform .15s, color .15s
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: var(--pink);
+  transform: translateY(-4px) scale(1.2) rotate(-6deg);
+  outline: none
+}
+
+.social-links a:focus-visible { outline: 3px solid var(--pink); outline-offset: 6px }
+
+.social-links a:active { transform: scale(.95) }
+
+@media(prefers-reduced-motion:reduce) {
+  .social-links a { transition: none }
+}
+
+.social-links svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.social-links svg .solid {
+  fill: currentColor;
+  stroke: none
+}
+
+/* Ajustes para pantallas medianas: escalar el collage sin cambiar su geometría. */
+@media(max-width:1380px) and (min-width:1201px) {
+  .large-card-grid {
+    width: 92vw
+  }
+
+  .last-images {
+    width: 92vw
+  }
+}
+
+@media(max-width:1200px) and (min-width:1001px) {
+  .large-card-grid {
+    width: 92vw
+  }
+
+  .last-images {
+    width: 92vw
+  }
+}
+
+@media(max-width:1000px) and (min-width:761px) {
+  .board-band img {
+    width: 68vw
+  }
+
+  .contents-section img {
+    width: 56vw
+  }
+
+  .templates-stage {
+    transform: scale(.85);
+    transform-origin: center
+  }
+
+  .small-card-grid {
+    width: 82vw
+  }
+
+  .small-card-grid img {
+    width: 11vw
+  }
+
+  .large-card-grid {
+    width: 92vw
+  }
+
+  .last-images {
+    width: 94vw
+  }
+}
+
+/* En móvil se conserva la composición, pero se escala al ancho disponible. */
+@media(max-width:760px) {
+  .board-band {
+    height: auto;
+    min-height: 210px;
+    padding: 24px 0
+  }
+
+  .board-band img {
+    width: min(732px, 88vw)
+  }
+
+  .contents-section {
+    min-height: 0;
+    padding: 22px 0 34px
+  }
+
+  .contents-section img {
+    width: min(594px, 82vw)
+  }
+
+  .templates-band {
+    height: clamp(170px, 43vw, 280px)
+  }
+
+  .templates-stage {
+    transform: scale(.60);
+    transform-origin: center center
+  }
+
+  .character-cards {
+    padding: 22px 0 0
+  }
+
+  .small-card-grid {
+    width: 90vw;
+    margin-bottom: 28px;
+    gap: 12px 2vw
+  }
+
+  .small-card-grid img {
+    width: min(126px, 19vw)
+  }
+
+  .large-card-grid {
+    width: 92vw;
+    gap: 10px
+  }
+
+  .last-images {
+    width: 94%;
+    margin-top: 32px;
+    gap: 8px
+  }
+
+  .sales-sheet {
+    padding: 25px 0 38px
+  }
+
+  .sales-sheet a {
+    font-size: 18px;
+    padding: 7px 20px;
+    border-width: 2px
+  }
+
+  footer {
+    min-height: 150px;
+    padding: 10px 0 28px;
+    gap: 12px
+  }
+
+  .footer-logo {
+    width: 125px
+  }
+
+  .social-links {
+    gap: 30px
+  }
+
+  .social-links a,
+  .social-links svg {
+    width: 23px;
+    height: 23px
+  }
+}
+
+@media(max-width:600px) {
+  .templates-stage {
+    transform: scale(.48)
+  }
+}
+
+@media(max-width:430px) {
+  .templates-stage {
+    transform: scale(.40)
+  }
+
+  .small-card-grid img {
+    width: min(100px, 20vw)
+  }
+
+  .large-card-grid {
+    width: 94vw;
+    gap: 6px
+  }
+
+  .last-images {
+    gap: 5px
+  }
+}
+
+/* Navbar: pastilla flotante estilo pegatina, sin barra de fondo. El hero queda libre. */
+.site-header {
+  position: absolute;
+  inset: 12px 12px auto 12px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  pointer-events: none
+}
+
+.navbar {
+  position: relative;
+  pointer-events: auto;
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--pink)
+}
+
+.navigation {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 6px;
+  list-style: none
+}
+
+.navigation a {
+  display: block;
+  padding: 8px 18px 6px;
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-size: 19px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background .15s, color .15s
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+  background: var(--pink);
+  color: var(--cream);
+  outline: none
+}
+
+.menu-toggle { display: none }
+
+@media(max-width:760px) {
+  .site-header { inset: 10px 10px auto 10px }
+
+  .navbar {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 26px
+  }
+
+  .menu-toggle {
+    width: 100%;
+    height: 46px;
+    padding: 4px 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: 0;
+    border-radius: 26px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 21px;
+    letter-spacing: .06em;
+    color: var(--ink)
+  }
+
+  .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: -3px }
+
+  .bars { display: grid; gap: 5px; margin-top: -4px }
+  .bars i { display: block; width: 26px; height: 3px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(1) { transform: translateY(8px) rotate(45deg) }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(2) { opacity: 0 }
+  .menu-toggle[aria-expanded="true"] .bars i:nth-child(3) { transform: translateY(-8px) rotate(-45deg) }
+
+  .navigation {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 8px;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height .25s ease, padding .25s ease, visibility .25s
+  }
+
+  .navigation.open {
+    max-height: 340px;
+    padding: 0 8px 10px;
+    visibility: visible
+  }
+
+  .navigation a { padding: 12px 14px 10px; font-size: 22px }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto }
+  .navigation, .bars i, .navigation a { transition: none }
+}
+
+/* Flecha para volver arriba: aparece al bajar. */
+.to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--pink);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .2s, transform .2s, visibility .2s, background .15s, color .15s
+}
+
+.to-top.show { opacity: 1; visibility: visible; transform: none }
+.to-top:hover, .to-top:focus-visible { background: var(--pink); color: var(--cream); outline: none }
+
+.to-top svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+@media(prefers-reduced-motion:reduce) { .to-top { transition: none } }
+
+/* Vista previa de cartas */
+.small-card-grid img,
+.large-card-grid img {
+  cursor: zoom-in;
+  transition: transform .15s
+}
+
+.small-card-grid img:hover,
+.large-card-grid img:hover { transform: scale(1.03) }
+
+.small-card-grid img:focus-visible,
+.large-card-grid img:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px }
+
+.lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(58, 40, 80, .92);
+  align-items: center;
+  justify-content: center
+}
+
+.lightbox[open] { display: flex }
+
+.lb-img {
+  max-width: min(92vw, 1100px);
+  max-height: 88dvh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .4)
+}
+
+.lightbox button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--pink);
+  cursor: pointer;
+  transition: background .15s, color .15s
+}
+
+.lightbox button:hover,
+.lightbox button:focus-visible { background: var(--pink); color: var(--cream); outline: none }
+
+.lightbox button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.lb-close { top: 14px; right: 14px }
+.lb-prev { left: 14px; top: 50% }
+.lb-next { right: 14px; top: 50% }
+
+@media(max-width:760px) {
+  .lightbox button { width: 42px; height: 42px }
+  .lb-nav { top: auto; bottom: 16px }
+  .lb-prev { left: calc(50% - 56px) }
+  .lb-next { right: calc(50% - 56px) }
+  .lb-img { max-height: 78dvh }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .small-card-grid img, .large-card-grid img, .sales-sheet a { transition: none }
+}
